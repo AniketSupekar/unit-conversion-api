@@ -1,0 +1,99 @@
+@baseUrl = http://localhost:5000
+
+### Get all supported units
+GET {{baseUrl}}/api/units
+Content-Type: application/json
+
+###
+
+### Convert Celsius to Fahrenheit
+POST {{baseUrl}}/api/convert
+Content-Type: application/json
+
+{
+  "value": 100,
+  "fromUnit": "celsius",
+  "toUnit": "fahrenheit"
+}
+
+###
+
+### Convert km to miles
+POST {{baseUrl}}/api/convert
+Content-Type: application/json
+
+{
+  "value": 10,
+  "fromUnit": "kilometer",
+  "toUnit": "mile"
+}
+
+###
+
+### Convert kg to pounds
+POST {{baseUrl}}/api/convert
+Content-Type: application/json
+
+{
+  "value": 75,
+  "fromUnit": "kilogram",
+  "toUnit": "pounds"
+}
+
+###
+
+### Convert square meters to acres
+POST {{baseUrl}}/api/convert
+Content-Type: application/json
+
+{
+  "value": 5000,
+  "fromUnit": "square meter",
+  "toUnit": "acres"
+}
+
+###
+
+### Error: unsupported unit
+POST {{baseUrl}}/api/convert
+Content-Type: application/json
+
+{
+  "value": 100,
+  "fromUnit": "parsec",
+  "toUnit": "meter"
+}
+
+###
+
+### Error: incompatible units (length vs weight)
+POST {{baseUrl}}/api/convert
+Content-Type: application/json
+
+{
+  "value": 100,
+  "fromUnit": "meter",
+  "toUnit": "kilogram"
+}
+
+###
+
+### Error: below absolute zero
+POST {{baseUrl}}/api/convert
+Content-Type: application/json
+
+{
+  "value": -300,
+  "fromUnit": "kelvin",
+  "toUnit": "celsius"
+}
+
+###
+
+### Error: missing required fields
+POST {{baseUrl}}/api/convert
+Content-Type: application/json
+
+{
+  "value": 100
+}
