@@ -79,11 +79,11 @@ result = value × (fromFactor / toFactor)
 ```
 Adding a new unit is one line in `UnitDefinitions.cs`.
 
-**Temperature** is handled separately because scales have different zero points — everything converts through Celsius as a middle step. Absolute zero is validated.
+**Temperature** is handled separately because scales have different zero points everything converts through Celsius as a middle step. Absolute zero is validated.
 
 **Each category has its own converter** implementing `IUnitConverter`. Adding a new category means one new file. Nothing existing changes.
 
-**Errors are handled in one place** — a middleware catches all exceptions and returns consistent JSON error responses. Controllers have no try/catch.
+**Errors are handled in one place** : a middleware catches all exceptions and returns consistent JSON error responses. Controllers have no try/catch.
 
 ---
 
