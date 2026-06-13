@@ -16,7 +16,7 @@ cd src/UnitConversionApi
 dotnet run
 ```
 
-Open `http://localhost:5000` — Swagger UI loads automatically.
+Open `http://localhost:5000` : Swagger UI loads automatically.
 
 ## Run Tests
 
